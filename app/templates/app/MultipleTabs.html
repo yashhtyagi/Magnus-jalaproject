@@ -1,0 +1,116 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<style>
+    .container {
+        margin-top: 15px;
+        padding-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .morepages{
+        border-top: 5px solid #3d87ff;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+</style>
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="">
+            <p class="h2">
+                Tabs
+                <!-- <small class="text-muted h5">more</small> -->
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">More</li>
+                    <li class="breadcrumb-item active" aria-current="page">Tabs</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="morepages">
+        <div class="nav-tabs-custom">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="t1-tab" data-bs-toggle="tab" data-bs-target="#t1" type="button" role="tab" aria-controls="t1" aria-selected="true">Plane to Succeed</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t2-tab" data-bs-toggle="tab" data-bs-target="#t2" type="button" role="tab" aria-controls="t2" aria-selected="false">UnLearnig</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t3-tab" data-bs-toggle="tab" data-bs-target="#t3" type="button" role="tab" aria-controls="t3" aria-selected="false">Ways of UnLearnig</button>
+                </li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="t1" role="tabpanel" aria-labelledby="t1-tab">
+                    <div class="container">
+                        Congratulations, You are in the best place to learn the technologies for JOB. Please strictly follow the plan for the first 45 days to see the unbelievable results.
+                        You must UNLEARN to LEARN new things every day as technologies are changing faster than ever and Because the old rules will no longer apply...and so your old knowledge is. It's time for us to think beyond.
+                        It's not just learning technologies, Also You learn how to use your knowledge and experience to get a job in less than 100 days.
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t2" role="tabpanel" aria-labelledby="t2-tab">
+                    <div class="container">
+                        <p>Unlearning is the process of realizing that something which we learned earlier is incorrect, ineffective, or obsolete, admitting it and deciding to erase such bad conditioning and misconceptions from our mind for good.
+                            It is the process of exploring what we have stored in our system and deleting all the unnecessary data. It is the process of saying bye to an old, obsolete, and outdated paradigm and embracing a new paradigm and willingly undergoing a paradigm shift.
+                            Unfortunately, we are controlled by myths which do not allow us to open our eyes to reality</p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t3" role="tabpanel" aria-labelledby="t3-tab">
+                    <div class="container">
+                        <p>The first step towards becoming an “unlearned” is not just to have a thirst for knowledge but to question our knowledge. 
+                            Discussing our knowledge with those who are competent in a particular field, being challenged constantly, and being ready to be proved wrong will help us understand whether what we have learned is still relevant or obsolete. It is also important to question one’s belief system and check whether we are treating myths as scientific facts.
+                            The next important step is to take steps to develop creative and critical thinking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var triggerFirstTabEl = document.querySelector('#myTab li:first-child a')
+    bootstrap.Tab.getInstance(triggerFirstTabEl).show()
+    // var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
+    // triggerTabList.forEach(function (triggerEl) {
+    // var tabTrigger = new bootstrap.Tab(triggerEl)
+
+    // triggerEl.addEventListener('click', function (event) {
+    //     event.preventDefault()
+    //     tabTrigger.show()
+    // })
+    // })
+</script>
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->

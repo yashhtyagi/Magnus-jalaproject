@@ -1,0 +1,99 @@
+{% extends 'main.html'%}
+{% load static %}
+
+{% block content%}
+<style>
+    .container {
+        margin-top: 15px;
+        padding-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .mainpage{
+        border-top: 5px solid #3d87ff;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+</style>
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="">
+            <p class="h2">
+                Uploading/Downloading Image
+                <!-- <small class="text-muted h5">Search</small> -->
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">More</li>
+                    <li class="breadcrumb-item active" aria-current="page">Images</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="mainpage">
+        <div class="container p-4">
+           <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label class="form-label">Select File:</label>
+                        {{form.image}}
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label class="form-label">File Name:</label>
+                        {{form.image_des}}
+                    </div>
+                    <div class="ms-5 mb-3 col">
+                        <label for="uploadbutton" class="form-label"></label>
+                        <button class="btn btn-success mt-2 form-control" id="uploadbutton" type="submit"> Upload</button>
+                    </div>
+                </div>
+           </form>
+        </div>
+        <div class="container">
+            <p class="h5 text-center mb-4">
+                Image List
+            </p>
+            <div class="d-flex justify-content-center">
+                {% for img in images %}
+                <div class="card me-3" style="width: 18rem;">
+                    <img src="{{img.image.url}}" class="card-img-top" alt="..." style="width: 17.95rem; height: 10rem;">
+                    <div class="card-body text-center d-flex justify-content-between" style="background-color: rgb(222, 227, 231);">
+                      <h5 class="card-text"><i>({{img.image_des}})</i></h5>
+                      <a href="{{img.image.url}}" class="btn btn-success btn-sm" download><i class="bi bi-box-arrow-down"></i></a>
+                    </div>
+                  </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->

@@ -1,0 +1,144 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<style>
+    .container {
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .morepages{
+        border-top: 5px solid #3d87ff;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+</style>
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="">
+            <p class="h2">
+                Menu
+                <!-- <small class="text-muted h5">m</small> -->
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">More</li>
+                    <li class="breadcrumb-item active" aria-current="page">Menu</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="morepages">
+        <div class="nav-tabs-custom">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="t1-tab" data-bs-toggle="tab" data-bs-target="#t1" type="button" role="tab" aria-controls="t1" aria-selected="true">Single Menu</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t2-tab" data-bs-toggle="tab" data-bs-target="#t2" type="button" role="tab" aria-controls="t2" aria-selected="false">Multiple Menu</button>
+                </li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="t1" role="tabpanel" aria-labelledby="t1-tab">
+                    <div class="container d-flex flex-column align-items-start">
+                        <button type="button" class="btn btn-light mb-2">Menu-Item</button>
+                        <button type="button" class="btn btn-light mb-2">Menu-Item</button>
+                        <button type="button" class="btn btn-light mb-2">Menu-Item</button>
+                        <button type="button" class="btn btn-light mb-2">Menu-Item</button>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t2" role="tabpanel" aria-labelledby="t2-tab">
+                    <div class="container d-flex flex-column align-items-start">
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn btn-light mb-1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Multiple Menu-Item
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item " href="#">Item 1</a></li>
+                                <li><a class="dropdown-item " href="#">Item 2</a></li>
+                                <li><a class="dropdown-item " href="#">Item 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn btn-light mb-1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Multiple Menu-Item
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item " href="#">Item 1</a></li>
+                                <li><a class="dropdown-item " href="#">Item 2</a></li>
+                                <li><a class="dropdown-item " href="#">Item 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn btn-light mb-1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Multiple Menu-Item
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item " href="#">Item 1</a></li>
+                                <li><a class="dropdown-item " href="#">Item 2</a></li>
+                                <li><a class="dropdown-item " href="#">Item 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="btn-group dropend">
+                            <button type="button" class="btn btn-light mb-1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Multiple Menu-Item
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item " href="#">Item 1</a></li>
+                                <li><a class="dropdown-item " href="#">Item 2</a></li>
+                                <li><a class="dropdown-item " href="#">Item 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var triggerFirstTabEl = document.querySelector('#myTab li:first-child a')
+    bootstrap.Tab.getInstance(triggerFirstTabEl).show()
+    // var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
+    // triggerTabList.forEach(function (triggerEl) {
+    // var tabTrigger = new bootstrap.Tab(triggerEl)
+
+    // triggerEl.addEventListener('click', function (event) {
+    //     event.preventDefault()
+    //     tabTrigger.show()
+    // })
+    // })
+</script>
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->

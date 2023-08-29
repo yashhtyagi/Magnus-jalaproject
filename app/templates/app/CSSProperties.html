@@ -1,0 +1,161 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<style>
+    .container {
+        margin-top: 15px;
+        padding-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .mainpage{
+        border-top: 5px solid #3d87ff;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+</style>
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="">
+            <p class="h2">
+                CSS Properties
+                <!-- <small class="text-muted h5">Search</small> -->
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">More</li>
+                    <li class="breadcrumb-item active" aria-current="page">CSS Prperties</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="mainpage">
+        <div class="nav-tabs-custom">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="t1-tab" data-bs-toggle="tab" data-bs-target="#t1" type="button" role="tab" aria-controls="t1" aria-selected="true">Links</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t2-tab" data-bs-toggle="tab" data-bs-target="#t2" type="button" role="tab" aria-controls="t2" aria-selected="false">Labels</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t3-tab" data-bs-toggle="tab" data-bs-target="#t3" type="button" role="tab" aria-controls="t3" aria-selected="false">Button</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t4-tab" data-bs-toggle="tab" data-bs-target="#t4" type="button" role="tab" aria-controls="t4" aria-selected="false">Alerts</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="t5-tab" data-bs-toggle="tab" data-bs-target="#t5" type="button" role="tab" aria-controls="t5" aria-selected="false">Progress Bar</button>
+                </li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="t1" role="tabpanel" aria-labelledby="t1-tab">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <a href="https://www.workinglinks.co.uk/" class="col-1 me-2 text-danger">Link1</a>
+                            <a href="https://www.google.co.in" class="col-1 me-2 text-primary">Link2</a>
+                            <a href="https://jalatechnologies.com/" class="col-1 me-2 text-success">Link3</a>
+                            <a href="https://jalatechnologies.com/" class="col-1 me-2 text-info">Link4</a>
+                            <a href="https://jalatechnologies.com/" class="col-1 me-2 text-warning">Link5</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t2" role="tabpanel" aria-labelledby="t2-tab">
+                    <div class="container">
+                        <div class="text-center">
+                            <span class="badge bg-secondary "> Default</span>
+                            <span class="badge bg-warning">Warning</span>
+                            <span class="badge bg-primary"> Primary</span>
+                            <span class="badge bg-info"> Info</span>
+                            <span class="badge bg-success">Success</span>
+                            <span class="badge bg-danger">Danger</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t3" role="tabpanel" aria-labelledby="t3-tab">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <button type="button" class="btn btn-secondary col-1 me-2">Default</button>
+                            <button type="button" class="btn btn-primary col-1 me-2">Primary</button>
+                            <button type="button" class="btn btn-success col-1 me-2">Success</button>
+                            <button type="button" class="btn btn-danger col-1 me-2">Danger</button>
+                            <button type="button" class="btn btn-warning col-1 me-2">Warning</button>
+                            <button type="button" class="btn btn-info col-1 me-2">Info</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t4" role="tabpanel" aria-labelledby="t4-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="alert alert-primary" role="alert">
+                                A simple primary alert—check it out!
+                              </div>
+                              <div class="alert alert-success" role="alert">
+                                A simple success alert—check it out!
+                              </div>
+                              <div class="alert alert-danger" role="alert">
+                                A simple danger alert—check it out!
+                              </div>
+                              <div class="alert alert-warning" role="alert">
+                                A simple warning alert—check it out!
+                              </div>
+                              <div class="alert alert-info" role="alert">
+                                A simple info alert—check it out!
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="t5" role="tabpanel" aria-labelledby="t5-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="progress mb-3">
+                            <div class="progress-bar bg-success mt" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress mb-3">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress mb-3">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress mb-3">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->

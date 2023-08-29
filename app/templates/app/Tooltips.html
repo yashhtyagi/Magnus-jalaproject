@@ -1,0 +1,91 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<style>
+    .container {
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .mainpage{
+        border-top: 5px solid #3d87ff;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+</style>
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center" >
+        <div class="">
+            <p class="h2">
+                Tooltips
+                <!-- <small class="text-muted h5">Search</small> -->
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">More</li>
+                    <li class="breadcrumb-item active" aria-current="page">Tooltips</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="mainpage">
+        <div class="nav-tabs-custom">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="t1-tab" data-bs-toggle="tab" data-bs-target="#t1" type="button" role="tab" aria-controls="t1" aria-selected="true">Tooltips</button>
+                </li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="t1" role="tabpanel" aria-labelledby="t1-tab">
+                   <div class="container">
+                        <br>
+                        <div class="row justify-content-center">
+                            <button type="button" class="btn btn-primary col-md-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip">
+                                Tooltip
+                            </button>
+                            <script>
+                                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+                                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                                return new bootstrap.Tooltip(tooltipTriggerEl)
+                                })
+                            </script>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->

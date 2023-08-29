@@ -1,0 +1,127 @@
+{% extends 'main.html'%}
+
+{% block content%}
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="">
+            <p class="h2">
+                Employee
+                <small class="text-muted h5">Search</small>
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">Employee</li>
+                    <li class="breadcrumb-item active" aria-current="page">Search</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="mainpage">
+        <div>
+            <div class="col-12 d-flex flex-row justify-content-between">
+                <h5 class="text-muted">Search Employee </h5>
+                <a class="btn btn-primary" href="{% url 'create' %}">Add Employee</a>
+            </div>
+            <hr>
+            <div class="text-center">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Date-of Birth</th>
+                            <th>Country</th>
+                            <th>City</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Date-of Birth</th>
+                            <th>Country</th>
+                            <th>City</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for Employee in Employees%}
+                        <tr>
+                            <td>{{Employee.first_name}}</td>
+                            <td>{{Employee.last_name}}</td>
+                            <td>{{Employee.mobile}}</td>
+                            <td>{{Employee.email}}</td>
+                            {% if Employee.gender == "Male" %}
+                                <td><i class="bi bi-gender-male h3"></i></td>
+                                {% else %}
+                                <td><i class="bi bi-gender-female h3"></i></td>
+                            {% endif %}
+                            <td>{{Employee.DOB}}</td>
+                            <td>{{Employee.country}}</td>
+                            <td>{{Employee.city}}</td>
+                            <td>
+                                <a href="{% url 'update' Employee.id %}" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <!-- <a href="{% url 'delete' Employee.id %}" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a> -->
+                                <button type="button" class="btn btn-danger btn-sm deletebtn" value="{{Employee.id}}" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{Employee.id}}"><i class="bi bi-trash-fill"></i></button>
+                            </td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% for Employee in Employees%}
+<div class="modal fade" id="staticBackdrop-{{Employee.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+            <i class="bi bi-info-circle text-warning h1"></i>
+            <h5 class="fs-3">Are you sure you want to delete ?</h5><br>
+            <div class="">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{% url 'delete' Employee.id %}" type="button" class="btn btn-outline-danger">Delete</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->

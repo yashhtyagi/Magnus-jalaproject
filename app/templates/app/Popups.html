@@ -1,0 +1,161 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<style>
+    .container {
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .mainpage{
+        border-top: 5px solid #3d87ff;
+        margin-top: 15px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 15px;
+    }
+</style>
+
+<div class="container">
+    <div class="d-flex flex-row justify-content-between align-items-center">
+        <div class="">
+            <p class="h2">
+                Popups
+                <!-- <small class="text-muted h5">Search</small> -->
+            </p>
+        </div>
+        <div class="">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb mb">
+                    <i class="bi bi-stack">&ensp;</i>
+                    <li class="breadcrumb-item"><a href="{% url 'home'%}">Home</a></li>
+                    <li class="breadcrumb-item">More</li>
+                    <li class="breadcrumb-item active" aria-current="page">Popups</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="mainpage">
+        <div class="nav-tabs-custom">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="t1-tab" data-bs-toggle="tab" data-bs-target="#t1" type="button" role="tab" aria-controls="t1" aria-selected="true">Popups</button>
+                </li>
+            </ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="t1" role="tabpanel" aria-labelledby="t1-tab">
+                   <div class="container">
+                        <div class="row justify-content-evenly">
+                            <button class="btn btn-primary col-md-2 "id="btnOne">Popup One</button>
+                            <button class="btn btn-primary col-md-2 "id="btnTwo">Popup Two</button>
+                            <button class="btn btn-primary col-md-2 "id="btnThree">Popup Three</button>
+                        </div>
+                        <br>
+                        <div class="row justify-content-evenly">
+                            <button class="btn btn-primary col-md-2" id="btnfour">Popup Duplicate</button>
+                            <a href="{% url 'popups' %}" target="_blank" class="btn btn-primary col-md-2">Diplicate Tab</a>
+                            <button type="button" class="btn btn-primary col-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">In Window Popup</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Pop One</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Popup One body.. 
+                                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row justify-content-evenly">
+                            <button class="btn btn-primary col-md-2" onclick="alertBox()">ALert Box</button>
+                            <button class="btn btn-primary col-md-2" onclick="confirmBox()">Confirm Box</button>
+                            <button class="btn btn-primary col-md-2" onclick="promptBox()">Prompt Box</button>
+                            <p class="col-md-12 text-danger text-center mt-5" id="prompttext"></p>
+                            <script>
+                                function alertBox() {
+                                    alert("I am an alert box!");
+                                }
+                                function confirmBox() {
+                                    confirm("I am an comfirm box!");
+                                }
+                                function promptBox() {
+                                    let text;
+                                    let person = prompt("Enter Your Name:", "JALA Academy- A Place to find your Dream Job");
+                                    if (person == null || person == "") {
+                                        text = "User cancelled the prompt.";
+                                    } else {
+                                        text = "Hello!! " + person;
+                                    }
+                                    document.getElementById("prompttext").innerHTML = text;
+                                }
+                            </script>
+                        </div>
+                        <script>
+                            let other = null; //will be our window reference
+                            let features =
+                                'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=no,width=400,height=400';
+                            //,height=400,width=400
+
+                            document.getElementById('btnOne').addEventListener('click', (ev) => {
+                                //open google in a new tab or window
+                                let url = 'https://google.com/';
+                                let other = window.open(url, '_blank', features);
+                            });
+                            document.getElementById('btnTwo').addEventListener('click', (ev) => {
+                                //open google in a new tab or window
+                                let url = 'https://www.tutorialspoint.com/index.htm';
+                                let other = window.open(url, '_blank', features);
+                            });
+                            document.getElementById('btnThree').addEventListener('click', (ev) => {
+                                //open google in a new tab or window
+                                let url = 'https://www.tutorialsteacher.com/';
+                                let other = window.open(url, '_blank', features);
+                            });
+                            document.getElementById('btnfour').addEventListener('click', (ev) => {
+                                //open google in a new tab or window
+                                let url = 'https://www.javatpoint.com/java-tutorial';
+                                let other = window.open(url, '_blank', features);
+                            });
+                        </script>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- <div class="row d-flex flex-row">
+    <div class="d-inline-flex p-2">
+        <p class="h2">
+            Employee
+            <small class="text-muted h5">Create</small>
+        <p>
+    </div>
+    <div class="d-inline-flex p-2">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
+    </div>
+</div> -->
