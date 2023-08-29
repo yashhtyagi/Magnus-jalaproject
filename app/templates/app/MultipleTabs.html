@@ -25,7 +25,7 @@
         <div class="">
             <p class="h2">
                 Tabs
-                <!-- <small class="text-muted h5">more</small> -->
+    
             </p>
         </div>
         <div class="">
@@ -84,33 +84,6 @@
 <script>
     var triggerFirstTabEl = document.querySelector('#myTab li:first-child a')
     bootstrap.Tab.getInstance(triggerFirstTabEl).show()
-    // var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
-    // triggerTabList.forEach(function (triggerEl) {
-    // var tabTrigger = new bootstrap.Tab(triggerEl)
-
-    // triggerEl.addEventListener('click', function (event) {
-    //     event.preventDefault()
-    //     tabTrigger.show()
-    // })
-    // })
 </script>
 
 {% endblock %}
-
-
-<!-- <div class="row d-flex flex-row">
-    <div class="d-inline-flex p-2">
-        <p class="h2">
-            Employee
-            <small class="text-muted h5">Create</small>
-        <p>
-    </div>
-    <div class="d-inline-flex p-2">
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
-            </ol>
-        </nav>
-    </div>
-</div> -->

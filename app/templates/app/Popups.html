@@ -24,7 +24,7 @@
         <div class="">
             <p class="h2">
                 Popups
-                <!-- <small class="text-muted h5">Search</small> -->
+
             </p>
         </div>
         <div class="">
@@ -107,28 +107,26 @@
                             </script>
                         </div>
                         <script>
-                            let other = null; //will be our window reference
+                            let other = null;
                             let features =
                                 'menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=no,width=400,height=400';
-                            //,height=400,width=400
 
                             document.getElementById('btnOne').addEventListener('click', (ev) => {
-                                //open google in a new tab or window
                                 let url = 'https://google.com/';
                                 let other = window.open(url, '_blank', features);
                             });
                             document.getElementById('btnTwo').addEventListener('click', (ev) => {
-                                //open google in a new tab or window
+                            
                                 let url = 'https://www.tutorialspoint.com/index.htm';
                                 let other = window.open(url, '_blank', features);
                             });
                             document.getElementById('btnThree').addEventListener('click', (ev) => {
-                                //open google in a new tab or window
+                            
                                 let url = 'https://www.tutorialsteacher.com/';
                                 let other = window.open(url, '_blank', features);
                             });
                             document.getElementById('btnfour').addEventListener('click', (ev) => {
-                                //open google in a new tab or window
+                        
                                 let url = 'https://www.javatpoint.com/java-tutorial';
                                 let other = window.open(url, '_blank', features);
                             });
@@ -141,21 +139,3 @@
 </div>
 
 {% endblock %}
-
-
-<!-- <div class="row d-flex flex-row">
-    <div class="d-inline-flex p-2">
-        <p class="h2">
-            Employee
-            <small class="text-muted h5">Create</small>
-        <p>
-    </div>
-    <div class="d-inline-flex p-2">
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
-            </ol>
-        </nav>
-    </div>
-</div> -->
